@@ -14,8 +14,7 @@ public class Problem01A {
             List<Integer> calories = new ArrayList<>();
 
             for(String elf : elves){
-                String[] temp = elf.split("\n");
-                calories.add(Arrays.stream(elf.trim().split("\\s+")).mapToInt(Integer::valueOf).sum());
+                calories.add(Arrays.stream(elf.split("\\s+")).mapToInt(Integer::valueOf).sum());
             }
 
             int max = Collections.max(calories);
