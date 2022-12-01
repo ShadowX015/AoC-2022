@@ -28,7 +28,7 @@ public class InputReader {
     public List<String> tokenize(String regex) throws java.io.IOException{
         List<String> result = new ArrayList<>();
 
-        String file = this.stream().collect(Collectors.joining());
+        String file = Files.readString(path);
         Pattern tokenizer = Pattern.compile(regex);
         Matcher matcher = tokenizer.matcher(file);
 
@@ -42,8 +42,7 @@ public class InputReader {
     // delimit the file around a token other than newlines.
     public List<String> delimitOn(String token) throws java.io.IOException{
         Pattern regex = Pattern.compile(token);
-        String file = this.stream().collect(Collectors.joining());
-
+        String file = Files.readString(path);
         return List.of(regex.split(file));
 
     }
